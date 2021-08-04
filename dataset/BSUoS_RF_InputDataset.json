@@ -1,0 +1,18 @@
+{
+	"name": "BSUoS_RF_InputDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "NationalGridESODatasets",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Binary",
+		"typeProperties": {
+			"location": {
+				"type": "HttpServerLocation",
+				"relativeUrl": "./d6a4bf54-c63f-4014-a716-49fd3878ca52/resource/26b0f410-27d4-448a-9437-45277818b838/download/current_rf_bsuos_data.csv"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

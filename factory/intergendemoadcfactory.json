@@ -1,0 +1,9 @@
+{
+	"name": "intergendemoadcfactory",
+	"location": "East Us",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "65d70f02-8a0f-4dc6-9ef6-f7037c81a293",
+		"tenantId": "cc2ce4d9-a4d2-4aa3-b55b-1470dfab5bad"
+	}
+}

@@ -1,0 +1,50 @@
+{
+	"name": "BSUoSRF",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"fileName": "current_rf_bsuos_data.csv",
+				"folderPath": "BSUoS/d6a4bf54-c63f-4014-a716-49fd3878ca52/resource/26b0f410-27d4-448a-9437-45277818b838/download",
+				"container": "adftutorial"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SettlementDay",
+				"type": "String"
+			},
+			{
+				"name": "SettlementPeriod",
+				"type": "String"
+			},
+			{
+				"name": "BSUoSPrice",
+				"type": "String"
+			},
+			{
+				"name": "HalfHourlyCharge",
+				"type": "String"
+			},
+			{
+				"name": "TotalDailyBSUoSCharge",
+				"type": "String"
+			},
+			{
+				"name": "RunType",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

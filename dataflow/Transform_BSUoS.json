@@ -1,0 +1,46 @@
+{
+	"name": "Transform_BSUoS",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "BSUoSSF",
+						"type": "DatasetReference"
+					},
+					"name": "BSUoSSF"
+				},
+				{
+					"dataset": {
+						"referenceName": "BSUoSII",
+						"type": "DatasetReference"
+					},
+					"name": "BSUoSII"
+				},
+				{
+					"dataset": {
+						"referenceName": "BSUoSRF",
+						"type": "DatasetReference"
+					},
+					"name": "BSUoSRF"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "BSUoS_OutputDataset",
+						"type": "DatasetReference"
+					},
+					"name": "Sink"
+				}
+			],
+			"transformations": [
+				{
+					"name": "BSUoS"
+				}
+			],
+			"script": "source(output(\n\t\tSettlementDay as string,\n\t\tSettlementPeriod as string,\n\t\tBSUoSPrice as string,\n\t\tHalfHourlyCharge as string,\n\t\tTotalDailyBSUoSCharge as string,\n\t\tRunType as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> BSUoSSF\nsource(output(\n\t\tSettlementDay as string,\n\t\tSettlementPeriod as string,\n\t\tBSUoSPrice as string,\n\t\tHalfHourlyCharge as string,\n\t\tTotalDailyBSUoSCharge as string,\n\t\tRunType as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> BSUoSII\nsource(output(\n\t\tSettlementDay as string,\n\t\tSettlementPeriod as string,\n\t\tBSUoSPrice as string,\n\t\tHalfHourlyCharge as string,\n\t\tTotalDailyBSUoSCharge as string,\n\t\tRunType as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> BSUoSRF\nBSUoSSF, BSUoSII, BSUoSRF union(byName: true)~> BSUoS\nBSUoS sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\tSettlementDay as string,\n\t\tSettlementPeriod as string,\n\t\tBSUoSPrice as string,\n\t\tHalfHourlyCharge as string,\n\t\tTotalDailyBSUoSCharge as string,\n\t\tRunType as string\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tmapColumn(\n\t\tSettlementDay,\n\t\tSettlementPeriod,\n\t\tBSUoSPrice,\n\t\tHalfHourlyCharge,\n\t\tTotalDailyBSUoSCharge,\n\t\tRunType\n\t)) ~> Sink"
+		}
+	}
+}

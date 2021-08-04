@@ -1,0 +1,49 @@
+{
+	"name": "BSUoS_OutputDataset",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "AzureBlobStorage",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobStorageLocation",
+				"folderPath": "BSUoS",
+				"container": "adftutorial"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SettlementDay",
+				"type": "String"
+			},
+			{
+				"name": "SettlementPeriod",
+				"type": "String"
+			},
+			{
+				"name": "BSUoSPrice",
+				"type": "String"
+			},
+			{
+				"name": "HalfHourlyCharge",
+				"type": "String"
+			},
+			{
+				"name": "TotalDailyBSUoSCharge",
+				"type": "String"
+			},
+			{
+				"name": "RunType",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
