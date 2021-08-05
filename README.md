@@ -24,6 +24,7 @@
 		2. [Data Governance](#data-governance)
 	2. [Azure DevOps](#azure-devops)
 	3. [Security Features](#security-features)
+	4. [Cost Management](#cost-management)
 
 ## Overview ##
 ## Ingest ##
@@ -49,3 +50,4 @@
 #### Data Governance ####
 ### Azure DevOps ###
 ### Security Features ###
+### Cost Management ###
