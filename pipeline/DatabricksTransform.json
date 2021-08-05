@@ -4,7 +4,8 @@
 		"description": "A demo pipeline to show how Databricks can be used to transform data",
 		"activities": [
 			{
-				"name": "Notebook1",
+				"name": "demoTransform",
+				"description": "A demo of using Databricks to transform pipeline data",
 				"type": "DatabricksNotebook",
 				"dependsOn": [],
 				"policy": {
