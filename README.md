@@ -22,7 +22,7 @@
 	1. [Azure Purview](#azurepurview)
 		1. [Data Catalog](#datacatalog)
 		2. [Data Governance](#datagovernance)
-	2. [Azure DevOps](#azuredevops]
+	2. [Azure DevOps](#azuredevops)
 	3. [Security Features](#securityfeatures)
 
 ## Overview ##
