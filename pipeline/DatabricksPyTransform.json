@@ -1,0 +1,29 @@
+{
+	"name": "DatabricksPyTransform",
+	"properties": {
+		"activities": [
+			{
+				"name": "demoPython",
+				"description": "A demo of running a python activity using Databricks",
+				"type": "DatabricksSparkPython",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "7.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"pythonFile": "dbfs:/FileStore/demo.py"
+				},
+				"linkedServiceName": {
+					"referenceName": "AzureDatabricks_IntergenDemo",
+					"type": "LinkedServiceReference"
+				}
+			}
+		],
+		"annotations": []
+	}
+}
