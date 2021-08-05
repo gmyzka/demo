@@ -1,0 +1,36 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "intergendemoadcfactory"
+		},
+		"AzureBlobStorage_connectionString": {
+			"value": ""
+		},
+		"AzureDatabricks_IntergenDemo_accessToken": {
+			"value": ""
+		},
+		"AzureSqlDatabaseLinkedService_connectionString": {
+			"value": ""
+		},
+		"azureStorageGen2LinkedService_accountKey": {
+			"value": ""
+		},
+		"azureStorageLinkedService_connectionString": {
+			"value": ""
+		},
+		"NationalGridESODatasets_properties_typeProperties_url": {
+			"value": "https://data.nationalgrideso.com/backend/dataset/"
+		},
+		"azureStorageGen2LinkedService_properties_typeProperties_url": {
+			"value": "https://intergendemoadcadls.dfs.core.windows.net"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
