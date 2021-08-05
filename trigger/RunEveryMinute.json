@@ -34,7 +34,7 @@
 			"recurrence": {
 				"frequency": "Minute",
 				"interval": 1,
-				"startTime": "2020-12-27T11:50:00",
+				"startTime": "2021-08-05T12:51:00",
 				"endTime": "2021-08-06T01:00:00",
 				"timeZone": "Tokyo Standard Time"
 			}
