@@ -13,6 +13,27 @@
 	},
 	"resources": [
 		{
+			"name": "[concat(parameters('factoryName'), '/OutputDataset')]",
+			"type": "Microsoft.DataFactory/factories/datasets",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"linkedServiceName": {
+					"referenceName": "azureStorageLinkedService",
+					"type": "LinkedServiceReference"
+				},
+				"annotations": [],
+				"type": "Binary",
+				"typeProperties": {
+					"location": {
+						"type": "AzureBlobStorageLocation",
+						"folderPath": "output",
+						"container": "adftutorial"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/OutputSqlDataset')]",
 			"type": "Microsoft.DataFactory/factories/datasets",
 			"apiVersion": "2018-06-01",
@@ -337,7 +358,9 @@
 				"annotations": [],
 				"lastPublishTime": "2020-12-26T07:21:14Z"
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/datasets/OutputDataset')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Copy_BSUoS_II')]",
@@ -739,8 +762,8 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 1,
-						"startTime": "2020-12-27T11:50:00",
-						"endTime": "2020-12-27T12:20:00",
+						"startTime": "2021-08-05T12:51:00",
+						"endTime": "2021-08-06T01:00:00",
 						"timeZone": "Tokyo Standard Time"
 					}
 				}

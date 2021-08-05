@@ -1254,6 +1254,38 @@
 			"dependsOn": []
 		},
 		{
+			"name": "[concat(parameters('factoryName'), '/RunEvery30Minutes')]",
+			"type": "Microsoft.DataFactory/factories/triggers",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"description": "Trigger fired every 30 minutes, at 0:01 and 0:31 past each hour",
+				"annotations": [],
+				"runtimeState": "Started",
+				"pipelines": [
+					{
+						"pipelineReference": {
+							"referenceName": "Transform_BSUoS",
+							"type": "PipelineReference"
+						},
+						"parameters": {}
+					}
+				],
+				"type": "ScheduleTrigger",
+				"typeProperties": {
+					"recurrence": {
+						"frequency": "Minute",
+						"interval": 30,
+						"startTime": "2021-08-05T01:01:00Z",
+						"endTime": "2021-08-06T01:00:00Z",
+						"timeZone": "UTC"
+					}
+				}
+			},
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/pipelines/Transform_BSUoS')]"
+			]
+		},
+		{
 			"name": "[concat(parameters('factoryName'), '/RunEveryMinute')]",
 			"type": "Microsoft.DataFactory/factories/triggers",
 			"apiVersion": "2018-06-01",
@@ -1295,8 +1327,8 @@
 					"recurrence": {
 						"frequency": "Minute",
 						"interval": 1,
-						"startTime": "2020-12-27T11:50:00",
-						"endTime": "2020-12-27T12:20:00",
+						"startTime": "2021-08-05T12:51:00",
+						"endTime": "2021-08-06T01:00:00",
 						"timeZone": "Tokyo Standard Time"
 					}
 				}
@@ -1338,6 +1370,26 @@
 			"dependsOn": [
 				"[concat(variables('factoryId'), '/pipelines/CopyPipeline')]"
 			]
+		},
+		{
+			"name": "[concat(parameters('factoryName'), '/DemoIntegrationRuntime')]",
+			"type": "Microsoft.DataFactory/factories/integrationRuntimes",
+			"apiVersion": "2018-06-01",
+			"properties": {
+				"type": "Managed",
+				"typeProperties": {
+					"computeProperties": {
+						"location": "UK South",
+						"dataFlowProperties": {
+							"computeType": "General",
+							"coreCount": 8,
+							"timeToLive": 10,
+							"cleanup": false
+						}
+					}
+				}
+			},
+			"dependsOn": []
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/Transform_BSUoS')]",
@@ -1391,38 +1443,6 @@
 				"[concat(variables('factoryId'), '/datasets/BSUoSII')]",
 				"[concat(variables('factoryId'), '/datasets/BSUoSRF')]",
 				"[concat(variables('factoryId'), '/datasets/BSUoS_OutputDataset')]"
-			]
-		},
-		{
-			"name": "[concat(parameters('factoryName'), '/RunEvery30Minutes')]",
-			"type": "Microsoft.DataFactory/factories/triggers",
-			"apiVersion": "2018-06-01",
-			"properties": {
-				"description": "Trigger fired every 30 minutes, at 0:01 and 0:31 past each hour",
-				"annotations": [],
-				"runtimeState": "Started",
-				"pipelines": [
-					{
-						"pipelineReference": {
-							"referenceName": "Transform_BSUoS",
-							"type": "PipelineReference"
-						},
-						"parameters": {}
-					}
-				],
-				"type": "ScheduleTrigger",
-				"typeProperties": {
-					"recurrence": {
-						"frequency": "Minute",
-						"interval": 30,
-						"startTime": "2021-08-05T01:01:00Z",
-						"endTime": "2021-08-06T01:00:00Z",
-						"timeZone": "UTC"
-					}
-				}
-			},
-			"dependsOn": [
-				"[concat(variables('factoryId'), '/pipelines/Transform_BSUoS')]"
 			]
 		}
 	]
