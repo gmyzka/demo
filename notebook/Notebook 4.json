@@ -1,0 +1,79 @@
+{
+	"name": "Notebook 4",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "Spark1",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/ec02c21c-1506-4d1a-9f2a-44dd9c5f2359/resourceGroups/intergendemo/providers/Microsoft.Synapse/workspaces/intergendemo/bigDataPools/Spark1",
+				"name": "Spark1",
+				"type": "Spark",
+				"endpoint": "https://intergendemo.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/Spark1",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 3,
+				"cores": 4,
+				"memory": 28
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"diagram": {
+						"activateDiagramType": 1,
+						"chartConfig": {
+							"category": "bar",
+							"keys": [
+								"SumTripDistance"
+							],
+							"values": [
+								"PassengerCount"
+							],
+							"yLabel": "PassengerCount",
+							"xLabel": "SumTripDistance",
+							"aggregation": "SUM",
+							"aggByBackend": false
+						},
+						"aggData": "{\"PassengerCount\":{\"1.2544348589983067E7\":1,\"1.309157027999906E7\":3,\"172174.33000000354\":4,\"2635668.6600005906\":2,\"296384.39000001096\":6,\"3.6\":8,\"484437.6800000323\":5}}",
+						"isSummary": false,
+						"previewData": {
+							"filter": null
+						},
+						"isSql": false
+					}
+				},
+				"source": [
+					"%%pyspark\r\n",
+					"df = spark.read.load('abfss://users@intergenlake.dfs.core.windows.net/NYCTaxi/PassengerCountStats_parquetformat/part-00000-0b9ba2f3-9c77-44f5-870d-7828c4328e5f-c000.snappy.parquet', format='parquet')\r\n",
+					"display(df.limit(10))"
+				],
+				"attachments": null,
+				"execution_count": 1
+			}
+		]
+	}
+}

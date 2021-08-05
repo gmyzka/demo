@@ -1,0 +1,13 @@
+{
+	"name": "NYCTaxiWorkspace2021",
+	"type": "Microsoft.Synapse/workspaces/linkedservices",
+	"properties": {
+		"description": "Used to create link for tutorial",
+		"annotations": [],
+		"type": "PowerBIWorkspace",
+		"typeProperties": {
+			"workspaceID": "4fc4670c-784e-47f6-9abd-c97bf79e3ce6",
+			"tenantID": "cc2ce4d9-a4d2-4aa3-b55b-1470dfab5bad"
+		}
+	}
+}
