@@ -65,9 +65,6 @@
 					"AzureBlobStorage_connectionString": {
 						"value": "[parameters('AzureBlobStorage_connectionString')]"
 					},
-					"AzureDatabricks_IntergenDemo_accessToken": {
-						"value": "[parameters('AzureDatabricks_IntergenDemo_accessToken')]"
-					},
 					"AzureSqlDatabaseLinkedService_connectionString": {
 						"value": "[parameters('AzureSqlDatabaseLinkedService_connectionString')]"
 					},
@@ -100,6 +97,9 @@
 				"parameters": {
 					"factoryName": {
 						"value": "[parameters('factoryName')]"
+					},
+					"AzureDatabricks_IntergenDemo_accessToken": {
+						"value": "[parameters('AzureDatabricks_IntergenDemo_accessToken')]"
 					}
 				}
 			},

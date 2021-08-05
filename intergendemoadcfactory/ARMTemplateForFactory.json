@@ -1236,10 +1236,19 @@
 						"type": "SecureString",
 						"value": "[parameters('AzureDatabricks_IntergenDemo_accessToken')]"
 					},
-					"existingClusterId": "1228-033500-burp634"
+					"newClusterNodeType": "Standard_DS3_v2",
+					"newClusterNumOfWorker": "1:2",
+					"newClusterVersion": "5.5.x-scala2.11",
+					"newClusterInitScripts": []
+				},
+				"connectVia": {
+					"referenceName": "DemoIntegrationRuntime",
+					"type": "IntegrationRuntimeReference"
 				}
 			},
-			"dependsOn": []
+			"dependsOn": [
+				"[concat(variables('factoryId'), '/integrationRuntimes/DemoIntegrationRuntime')]"
+			]
 		},
 		{
 			"name": "[concat(parameters('factoryName'), '/AzureSqlDatabaseLinkedService')]",
